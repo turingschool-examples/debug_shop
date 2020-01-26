@@ -14,28 +14,40 @@ RSpec.describe "Items Index Page" do
 
     it "I can see a list of all of the items "do
 
-    visit '/items'
-    expect(page).to have_content("Chain")
-    expect(page).to have_content("Gatorskins")
-    expect(page).to have_content("Shimano Shifters")
-    expect(page).to have_content("Pull Toy")
-    expect(page).to have_content("Dog Bone")
-    expect(page).to have_content("It'll never break!")
-    expect(page).to have_content("It'll always shift!")
-    expect(page).to have_content("They'll never pop!")
-    expect(page).to have_content("Great pull toy!")
-    expect(page).to have_content("They'll love it!")
-    expect(page).to have_content("32")
-    # save_and_open_page
-    # expect(page).to have_content(@pull_toy.image)
-    # test other things here.. but blah blah blah yah it's working
+      visit '/items'
+
+      within "#item-#{@chain.id}" do
+        expect(page).to have_content("Chain")
+        expect(page).to have_content("It'll never break!")
+        expect(page).to have_content("Price: $50.00")
+        expect(page).to have_content("Inventory: 5")
+        expect(page).to have_content("Active")
+        expect(page).to have_link("Meg's Bike Shop")
+      end
+      within "#item-#{@tire.id}" do
+        expect(page).to have_content("Gatorskins")
+        expect(page).to have_content("They'll never pop!")
+        expect(page).to have_content("Price: $100.00")
+        expect(page).to have_content("Inventory: 12")
+        expect(page).to have_content("Active")
+        expect(page).to have_link("Meg's Bike Shop")
+      end
+      within "#item-#{@shifter.id}" do
+        expect(page).to have_content("Shimano Shifters")
+        expect(page).to have_content("It'll always shift!")
+        expect(page).to have_content("Price: $10.00")
+        expect(page).to have_content("Inventory: 32")
+        expect(page).to have_content("Active")
+        expect(page).to have_link("Meg's Bike Shop")
+      end
+      within "#item-#{@pull_toy.id}" do
+        expect(page).to have_content("Pull Toy")
+        expect(page).to have_content("Great pull toy!")
+        expect(page).to have_content("Price: $180.00")
+        expect(page).to have_content("Inventory: 2")
+        expect(page).to have_content("Inactive")
+        expect(page).to have_link("Brian's Dog Shop")
+      end
     end
   end
-
-
-
-
-
-
-    # get '/merchants/:merchant_id/items', to: 'items#index'
 end

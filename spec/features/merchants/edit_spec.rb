@@ -7,7 +7,7 @@ RSpec.describe "As a Visitor" do
 
 
       visit "/merchants/#{merchant_1.id}"
-      click_on "Update Merchant"
+      click_on "Update Merchant Info"
 
       expect(find_field('Name').value).to eq 'Meghan'
       expect(find_field('Address').value).to eq '123 something street'
@@ -19,7 +19,8 @@ RSpec.describe "As a Visitor" do
     it 'I can edit merchant info by filling in the form and clicking submit' do
       merchant_1 = Merchant.create(name: "Meghan" ,address: "123 something street" , city: "Hershey", state: "PA", zip: 17033 )
       visit "/merchants/#{merchant_1.id}"
-      click_on "Update Merchant"
+
+      click_on "Update Merchant Info"
 
       fill_in 'Name', with: "Meg"
       fill_in 'Address', with: "1223 Perry St."

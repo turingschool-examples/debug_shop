@@ -6,9 +6,9 @@ class ItemsController<ApplicationController
     end
   end
 
-  def create
+  def creaate
     merchant = Merchant.find(params[:merchant_id])
-    merchant.items.create(item_params)
+    Item.create(item_params)
     redirect_to "/merchants/#{merchant.id}/items"
   end
 
@@ -19,16 +19,11 @@ class ItemsController<ApplicationController
   def update
     item = Item.find(params[:id])
     item.update(item_params)
-    redirect_to "/items/#{item.id}"
+    redirect_to "/items/params[:id]"
   end
 
   def index
-    if params[:merchant_id]
-      @merchant = Merchant.find(params[:merchant_id])
-      @items = @merchant.items
-    else
-      @items = Item.all
-    end
+    @items = Item.all
   end
 
   def show

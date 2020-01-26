@@ -1,20 +1,3 @@
-# User Story 10, Item Update
-#
-# As a visitor
-# When I visit an Item Show page
-# Then I see a link to update that Item
-# When I click the link
-# I am taken to '/items/:id/edit' where I see a form to edit the item's data including:
-# - name
-# - price
-# - description
-# - image
-# - inventory
-# When I click the button to submit the form
-# Then a `PATCH` request is sent to '/items/:id',
-# the item's data is updated,
-# and I am redirected to the Item Show page where I see the Item's updated information
-
 require 'rails_helper'
 
 RSpec.describe "As a Visitor" do
@@ -49,7 +32,7 @@ RSpec.describe "As a Visitor" do
         fill_in 'Inventory', with: 11
 
         click_button "Update Item"
-        
+
         expect(current_path).to eq("/items/#{@tire.id}")
         expect(page).to have_content("GatorSkins")
         expect(page).to_not have_content("Gatorskins")

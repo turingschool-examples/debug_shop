@@ -17,17 +17,14 @@ RSpec.describe "Merchant Items Index Page" do
 
       expect(page).to have_content(@tire.name)
       expect(page).to have_content(@tire.price)
-      #test for image
       expect(page).to have_content(@tire.active_inactive)
       expect(page).to have_content(@tire.inventory)
       expect(page).to have_content(@chain.name)
       expect(page).to have_content(@chain.price)
-      #test for image
       expect(page).to have_content(@chain.active_inactive)
       expect(page).to have_content(@chain.inventory)
       expect(page).to have_content(@shifter.name)
       expect(page).to have_content(@shifter.price)
-      #test for image
       expect(page).to have_content(@shifter.active_inactive)
       expect(page).to have_content(@shifter.inventory)
       expect(page).to_not have_content(@pull_toy.name)
@@ -36,8 +33,6 @@ RSpec.describe "Merchant Items Index Page" do
     it 'has a link to add a new item for that merchant' do
 
       visit "merchants/#{@meg.id}/items"
-
-      expect(page).to have_link("Add New Item")
 
       click_on "Add New Item"
 

@@ -13,14 +13,14 @@ RSpec.describe "New Merchant Page" do
         state = "CO"
         zip = 80204
 
-        fill_in 'Name', with: name
-        fill_in 'Address', with: address
-        fill_in 'City', with: city
-        fill_in 'State', with: state
-        fill_in 'Zip', with: zip
+        fill_in :name, with: name
+        fill_in :address, with: address
+        fill_in :city, with: city
+        fill_in :state, with: state
+        fill_in :zip, with: zip
 
         click_button 'Create Merchant'
-        
+
         expect(current_path).to eq('/merchants')
         expect(page).to have_content(name)
       end

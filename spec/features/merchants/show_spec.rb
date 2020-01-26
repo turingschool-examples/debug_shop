@@ -2,7 +2,6 @@ require 'rails_helper'
 
 
 RSpec.describe 'merchant show page', type: :feature do
-
   it 'shows list of merchants information' do
     merchant_1 = Merchant.create(name: "Meghan" ,address: "123 something street" , city: "Hershey", state: "PA", zip: 17033 )
 
@@ -19,8 +18,6 @@ RSpec.describe 'merchant show page', type: :feature do
     merchant_1 = Merchant.create(name: "Meghan" ,address: "123 something street" , city: "Hershey", state: "PA", zip: 17033 )
 
     visit "/merchants/#{merchant_1.id}"
-
-    expect(page).to have_link("Update Merchant Info")
 
     click_on "Update Merchant Info"
 

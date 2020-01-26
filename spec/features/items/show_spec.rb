@@ -14,8 +14,6 @@ RSpec.describe 'item show page', type: :feature do
     expect(page).to have_content(chain.active_inactive)
     expect(page).to have_content(chain.inventory)
     expect(page).to have_content(chain.merchant.name)
-    # save_and_open_page
-    # expect(page).to have_content(chain.image)
   end
 
   it 'has a link to update the item' do

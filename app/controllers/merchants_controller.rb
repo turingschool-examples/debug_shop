@@ -4,7 +4,6 @@ class MerchantsController <ApplicationController
   end
 
   def create
-    # binding.pry
     Merchant.create(merchant_params)
     redirect_to '/merchants'
   end
@@ -14,7 +13,6 @@ class MerchantsController <ApplicationController
   end
 
   def index
-    @merchants = Merchant.all
   end
 
   def show
@@ -22,7 +20,8 @@ class MerchantsController <ApplicationController
   end
 
   def update
-    Merchant.find(params[:id]).update(merchant_params)
+    merchant = Merchant.find(params[:id])
+    update(merchant_params)
     redirect_to "/merchants/#{params[:id]}"
   end
 
@@ -35,7 +34,7 @@ class MerchantsController <ApplicationController
   private
 
   def merchant_params
-    params.permit(:name, :address, :city, :state, :zip)
+    params.permit(:name, :address, :city, :state, :zipcode)
   end
 
 end
