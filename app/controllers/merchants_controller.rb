@@ -4,7 +4,7 @@ class MerchantsController <ApplicationController
   end
 
   def create
-    Merchant.create(merchant_params)
+    Merchants.create(merchant_params)
     redirect_to '/merchants'
   end
 
