@@ -35,17 +35,17 @@ RSpec.describe "Items Index Page" do
       within "#item-#{@shifter.id}" do
         expect(page).to have_content("Shimano Shifters")
         expect(page).to have_content("It'll always shift!")
-        expect(page).to have_content("Price: $10.00")
-        expect(page).to have_content("Inventory: 32")
-        expect(page).to have_content("Active")
+        expect(page).to have_content("Price: $180.00")
+        expect(page).to have_content("Inventory: 2")
+        expect(page).to have_content("Inactive")
         expect(page).to have_link("Meg's Bike Shop")
       end
       within "#item-#{@pull_toy.id}" do
         expect(page).to have_content("Pull Toy")
         expect(page).to have_content("Great pull toy!")
-        expect(page).to have_content("Price: $180.00")
-        expect(page).to have_content("Inventory: 2")
-        expect(page).to have_content("Inactive")
+        expect(page).to have_content("Price: $10.00")
+        expect(page).to have_content("Inventory: 32")
+        expect(page).to have_content("Active")
         expect(page).to have_link("Brian's Dog Shop")
       end
     end
